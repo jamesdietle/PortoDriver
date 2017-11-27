@@ -1,0 +1,14 @@
+
+# Submission Code
+submission = pd.DataFrame({'id': train.id, 'target': train.target})
+submission[:5]
+
+# Makes the submission name out of folders
+path = PATH +'submits/'
+## labels submissions in order
+numFiles=len(os.listdir(path))
+subm_name = 'submission'+str(numFiles)+'.csv.gz'
+
+## prints it out to downloaded
+submission.to_csv((path+'submits/'+subm_name), index=False, compression='gzip')
+print ('http://localhost:8888/view/data/kaggle/Porto/submits/'+subm_name)
